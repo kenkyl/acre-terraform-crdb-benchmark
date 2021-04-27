@@ -31,7 +31,7 @@ in two separate regions with active geo-replication
 ## Getting started
 
 ```bash
-  git clone https://github.com/redisgeek/acre-terraform-geo-replication
+  git clone https://github.com/kylek/acre-terraform-geo-replication
   cd acre-terraform-geo-replication
   terraform init
 ```

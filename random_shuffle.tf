@@ -1,4 +1,4 @@
-resource "random_shuffle" "redisgeek" {
+resource "random_shuffle" "kylek" {
   # Regions with 3 AZs
   input = [
     "Australia East",

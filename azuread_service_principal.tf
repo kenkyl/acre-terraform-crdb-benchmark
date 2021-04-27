@@ -1,3 +1,3 @@
-data "azuread_service_principal" "redisgeek" {
+data "azuread_service_principal" "kylek" {
   application_id = var.client_id
 }
