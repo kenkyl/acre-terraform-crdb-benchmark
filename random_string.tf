@@ -26,3 +26,10 @@ resource "random_string" "acre_group_name" {
   special = false
   upper   = false
 }
+
+resource "random_string" "client_vm_name" {
+  length = 4
+  number = true
+  special = false
+  upper = false
+}

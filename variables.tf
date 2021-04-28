@@ -65,3 +65,15 @@ variable "tags" {
   default     = {}
   type        = map(string)
 }
+
+variable "client_vm_name_root" {
+  description = "The name of the client VM used to run memtier_benchmark"
+  type = string
+  default = "client-test-vm"
+}
+
+variable "client_region" {
+  description = "The region where the client vm and associated resources are deployed"
+  type = string
+  default = "eastus2"
+}

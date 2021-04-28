@@ -1,3 +1,4 @@
+/*
 resource "azurerm_resource_group_template_deployment" "acre_1" {
   name                = format("kylek%s", random_string.acre_name_1.result)
   resource_group_name = azurerm_resource_group.resource_group.name
@@ -41,3 +42,4 @@ resource "azurerm_resource_group_template_deployment" "acre_2" {
 
   depends_on = [azurerm_resource_group_template_deployment.acre_1]
 }
+*/

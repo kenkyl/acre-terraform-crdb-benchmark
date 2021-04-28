@@ -3,3 +3,4 @@
 .envrc
 terraform.tfvars
 terraform.tfstate*
+#notes.txt

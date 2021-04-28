@@ -1,0 +1,8 @@
+tasks
+1. add VM to terraform script 
+2. install memtier on vm and start benchmark 
+3. make memtier arguments configurable 
+4. make vm sizing configurable
+5. make ACRE AA instance sizes configurable 
+-- optional
+6. add load balancer to point to AA instances 
