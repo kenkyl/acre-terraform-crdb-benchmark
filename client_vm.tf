@@ -117,6 +117,13 @@ output "tls_private_key" {
 # Define data block for memtier 
 data "template_file" "script" {
     template = file("${path.module}/install_memtier_benchmark.yml")
+
+    vars = {
+        memtier_redis_server_address = var.memtier_redis_server_address
+        memtier_redis_port =  var.memtier_redis_port
+        memtier_data_input_1 = var.memtier_data_input_1
+        memtier_benchmark_1 = var.memtier_benchmark_1
+    }
 }
 
 data "template_cloudinit_config" "config" {
@@ -129,13 +136,13 @@ data "template_cloudinit_config" "config" {
 }
 
 # Create virtual machine
-resource "azurerm_linux_virtual_machine" "myterraformvm" {
+resource "azurerm_linux_virtual_machine" "memtier_vm" {
     name                  = format("%s-%s", var.client_vm_name_root, random_string.client_vm_name.result)
     location              = var.client_region
     resource_group_name   = azurerm_resource_group.resource_group.name
     network_interface_ids = [azurerm_network_interface.myterraformnic.id]
     size                  = "Standard_DS1_v2"
-    custom_data = data.template_cloudinit_config.config.rendered
+    custom_data          = data.template_cloudinit_config.config.rendered
 
     os_disk {
         name              = "myOsDisk"

@@ -1,19 +1,32 @@
 #cloud-config
 
-# Required packages
-packages:
-  - autoconf
-  - automake
-  - make
-  - gcc-c++
-  - pcre-devel
-  - zlib-devel
-  - libmemcached-devel
-  - libevent
-  - libevent-devel
-  - openssl-devel
-  - git
-
-# Commands to run
+# Install additional packages on first boot
+#
+# Default: none
+#
+# if packages are specified, this apt_update will be set to true
+#
+# packages may be supplied as a single package name or as a list
+# with the format [<package>, <version>] wherein the specifc
+# package version will be installed.
+# # Commands to run
 runcmd:
-  - "git clone https://github.com/RedisLabs/memtier_benchmark && (cd memtier_benchmark; autoreconf -iv && ./configure && make install) && rm -rf memtier_benchmark"
+  - "apt-get -y install make"
+  - "apt-get -y install build-essential"
+  - "apt-get -y install autoconf"
+  - "apt-get -y install automake"
+  - "apt-get -y install libpcre3-dev"
+  - "apt-get -y install libevent-dev"
+  - "apt-get -y install pkg-config"
+  - "apt-get -y install zlib1g-dev"
+  - "apt-get -y install libssl-dev"
+  - "git clone https://github.com/RedisLabs/memtier_benchmark"
+  - "cd memtier_benchmark"
+  - "autoreconf -iv && ./configure && make install"
+  - "${memtier_data_input_1}  -s ${memtier_redis_server_address} -p ${memtier_redis_port}"
+  - "${memtier_benchmark_1}  -s ${memtier_redis_server_address} -p ${memtier_redis_port}"
+  - "redis-cli -h ${memtier_redis_server_address} -p ${memtier_redis_port} flushdb" # does not work redis is not installed
+  - "${memtier_data_input_1}  -s ${memtier_redis_server_address} -p ${memtier_redis_port}"
+  - "${memtier_benchmark_1}  -s ${memtier_redis_server_address} -p ${memtier_redis_port}"
+  
+  #- "rm -rf memtier_benchmark" # if we want to remove the folder

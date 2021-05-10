@@ -1,0 +1,2066 @@
+{
+    "format_version": "0.1",
+    "terraform_version": "0.15.0",
+    "variables": {
+        "acre_capacity": {
+            "value": 2
+        },
+        "acre_client_protocol": {
+            "value": "Encrypted"
+        },
+        "acre_cluster_policy": {
+            "value": "EnterpriseCluster"
+        },
+        "acre_deployment_mode": {
+            "value": "Incremental"
+        },
+        "acre_eviction_policy": {
+            "value": "NoEviction"
+        },
+        "acre_sku": {
+            "value": "Enterprise_E10"
+        },
+        "acre_template_path_1": {
+            "value": "./ARM/ACRE/json1.template"
+        },
+        "acre_template_path_2": {
+            "value": "./ARM/ACRE/json2.template"
+        },
+        "client_id": {
+            "value": "e8121ee7-08d3-40ae-b7b1-2494b7d45a30"
+        },
+        "client_region": {
+            "value": "eastus2"
+        },
+        "client_secret": {
+            "value": "oXLiVt-Hcly~mngNTt5S2NpygFwIXa0ADK"
+        },
+        "client_vm_name_root": {
+            "value": "client-test-vm"
+        },
+        "cloud_name": {
+            "value": "public"
+        },
+        "subscription_id": {
+            "value": "ef03f41d-d2bd-4691-b3a0-3aff1c6711f7"
+        },
+        "tags": {
+            "value": {}
+        },
+        "tenant_id": {
+            "value": "1428732f-21cf-469e-ad48-5721f4eac1e2"
+        }
+    },
+    "planned_values": {
+        "outputs": {
+            "kylek_config": {
+                "sensitive": true
+            },
+            "tls_private_key": {
+                "sensitive": true
+            }
+        },
+        "root_module": {
+            "resources": [
+                {
+                    "address": "azurerm_linux_virtual_machine.myterraformvm",
+                    "mode": "managed",
+                    "type": "azurerm_linux_virtual_machine",
+                    "name": "myterraformvm",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "additional_capabilities": [],
+                        "admin_password": null,
+                        "admin_ssh_key": [
+                            {
+                                "username": "azureuser"
+                            }
+                        ],
+                        "admin_username": "azureuser",
+                        "allow_extension_operations": true,
+                        "availability_set_id": null,
+                        "boot_diagnostics": [
+                            {}
+                        ],
+                        "computer_name": "myvm",
+                        "custom_data": "H4sIAAAAAAAA/2SRQYsUMRCF74H+D0UvLMqSaT0JvXjQdQ+CozCo4EnSSU13MUmlTSrDrr9e0otDD32r79WjqvLyEFmQRX9/nrGHULzQbJJ0gZ7Q3cMQCzuTnt+3+8/7x4/ffnz99OHwq1WV9E9MmSL38Hb3plGN0nptatRldjKcj5j0I9voiMce3g0kK8OyXPBJOutjcdpGPtLYqD0F3Ky5WXuUuoED/imU0MFs7MmMmNX/olcAGkyRWN0XCOaEC1yK0Vpt7+6WerYJtcMz+gX/ehpW6GkIGKyxE7prGc/IcgWrfpyRc/YrZSSpxz/EEAy7DBIhFVapsA3u5fB2JAHrIyNMInPuu24kmcqwszF0B3SUv5ghdwGDEKbfA7KdgkknuL2FV9bBpnG/vD9hjQM0natx171EWRJWrJkAcRbj/esqpAA6Hbez2s2Xa92ofwEAAP//irchEVECAAA=",
+                        "dedicated_host_id": null,
+                        "disable_password_authentication": true,
+                        "encryption_at_host_enabled": null,
+                        "eviction_policy": null,
+                        "extensions_time_budget": "PT1H30M",
+                        "identity": [],
+                        "license_type": null,
+                        "location": "eastus2",
+                        "max_bid_price": -1,
+                        "os_disk": [
+                            {
+                                "caching": "ReadWrite",
+                                "diff_disk_settings": [],
+                                "disk_encryption_set_id": null,
+                                "name": "myOsDisk",
+                                "storage_account_type": "Premium_LRS",
+                                "write_accelerator_enabled": false
+                            }
+                        ],
+                        "plan": [],
+                        "platform_fault_domain": -1,
+                        "priority": "Regular",
+                        "provision_vm_agent": true,
+                        "proximity_placement_group_id": null,
+                        "secret": [],
+                        "size": "Standard_DS1_v2",
+                        "source_image_id": null,
+                        "source_image_reference": [
+                            {
+                                "offer": "UbuntuServer",
+                                "publisher": "Canonical",
+                                "sku": "18.04-LTS",
+                                "version": "latest"
+                            }
+                        ],
+                        "tags": {
+                            "environment": "Terraform Demo"
+                        },
+                        "timeouts": null,
+                        "virtual_machine_scale_set_id": null
+                    }
+                },
+                {
+                    "address": "azurerm_network_interface.myterraformnic",
+                    "mode": "managed",
+                    "type": "azurerm_network_interface",
+                    "name": "myterraformnic",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "enable_accelerated_networking": false,
+                        "enable_ip_forwarding": false,
+                        "ip_configuration": [
+                            {
+                                "name": "myNicConfiguration",
+                                "private_ip_address_allocation": "dynamic",
+                                "private_ip_address_version": "IPv4"
+                            }
+                        ],
+                        "location": "eastus2",
+                        "name": "myNIC",
+                        "tags": {
+                            "environment": "Terraform Demo"
+                        },
+                        "timeouts": null
+                    }
+                },
+                {
+                    "address": "azurerm_network_interface_security_group_association.example",
+                    "mode": "managed",
+                    "type": "azurerm_network_interface_security_group_association",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "timeouts": null
+                    }
+                },
+                {
+                    "address": "azurerm_network_security_group.myterraformnsg",
+                    "mode": "managed",
+                    "type": "azurerm_network_security_group",
+                    "name": "myterraformnsg",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "location": "eastus2",
+                        "name": "myNetworkSecurityGroup",
+                        "security_rule": [
+                            {
+                                "access": "Allow",
+                                "description": "",
+                                "destination_address_prefix": "*",
+                                "destination_address_prefixes": [],
+                                "destination_application_security_group_ids": [],
+                                "destination_port_range": "22",
+                                "destination_port_ranges": [],
+                                "direction": "Inbound",
+                                "name": "SSH",
+                                "priority": 1001,
+                                "protocol": "Tcp",
+                                "source_address_prefix": "*",
+                                "source_address_prefixes": [],
+                                "source_application_security_group_ids": [],
+                                "source_port_range": "*",
+                                "source_port_ranges": []
+                            }
+                        ],
+                        "tags": {
+                            "environment": "Terraform Demo"
+                        },
+                        "timeouts": null
+                    }
+                },
+                {
+                    "address": "azurerm_public_ip.myterraformpublicip",
+                    "mode": "managed",
+                    "type": "azurerm_public_ip",
+                    "name": "myterraformpublicip",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "allocation_method": "Dynamic",
+                        "domain_name_label": null,
+                        "idle_timeout_in_minutes": 4,
+                        "ip_version": "IPv4",
+                        "location": "eastus2",
+                        "name": "myPublicIP",
+                        "public_ip_prefix_id": null,
+                        "reverse_fqdn": null,
+                        "sku": "Basic",
+                        "tags": {
+                            "environment": "Terraform Demo"
+                        },
+                        "timeouts": null,
+                        "zones": null
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.resource_group",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "name": "resource_group",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "tags": {
+                            "owner": "bamosACRE"
+                        },
+                        "timeouts": null
+                    }
+                },
+                {
+                    "address": "azurerm_storage_account.mystorageaccount",
+                    "mode": "managed",
+                    "type": "azurerm_storage_account",
+                    "name": "mystorageaccount",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 2,
+                    "values": {
+                        "account_kind": "StorageV2",
+                        "account_replication_type": "LRS",
+                        "account_tier": "Standard",
+                        "allow_blob_public_access": false,
+                        "custom_domain": [],
+                        "enable_https_traffic_only": true,
+                        "is_hns_enabled": false,
+                        "location": "eastus2",
+                        "min_tls_version": "TLS1_0",
+                        "static_website": [],
+                        "tags": {
+                            "environment": "Terraform Demo"
+                        },
+                        "timeouts": null
+                    }
+                },
+                {
+                    "address": "azurerm_subnet.myterraformsubnet",
+                    "mode": "managed",
+                    "type": "azurerm_subnet",
+                    "name": "myterraformsubnet",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "address_prefixes": [
+                            "10.0.1.0/24"
+                        ],
+                        "delegation": [],
+                        "enforce_private_link_endpoint_network_policies": false,
+                        "enforce_private_link_service_network_policies": false,
+                        "name": "mySubnet",
+                        "service_endpoint_policy_ids": null,
+                        "service_endpoints": null,
+                        "timeouts": null,
+                        "virtual_network_name": "myVnet"
+                    }
+                },
+                {
+                    "address": "azurerm_virtual_network.myterraformnetwork",
+                    "mode": "managed",
+                    "type": "azurerm_virtual_network",
+                    "name": "myterraformnetwork",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "address_space": [
+                            "10.0.0.0/16"
+                        ],
+                        "bgp_community": null,
+                        "ddos_protection_plan": [],
+                        "dns_servers": null,
+                        "location": "eastus2",
+                        "name": "myVnet",
+                        "tags": {
+                            "environment": "Terraform Demo"
+                        },
+                        "timeouts": null,
+                        "vm_protection_enabled": false
+                    }
+                },
+                {
+                    "address": "random_id.randomId",
+                    "mode": "managed",
+                    "type": "random_id",
+                    "name": "randomId",
+                    "provider_name": "registry.terraform.io/hashicorp/random",
+                    "schema_version": 0,
+                    "values": {
+                        "byte_length": 8,
+                        "prefix": null
+                    }
+                },
+                {
+                    "address": "random_shuffle.kylek",
+                    "mode": "managed",
+                    "type": "random_shuffle",
+                    "name": "kylek",
+                    "provider_name": "registry.terraform.io/hashicorp/random",
+                    "schema_version": 0,
+                    "values": {
+                        "input": [
+                            "Central US",
+                            "East US",
+                            "East US 2",
+                            "West US 2"
+                        ],
+                        "keepers": null,
+                        "result_count": 2,
+                        "seed": null
+                    }
+                },
+                {
+                    "address": "random_string.acre_group_name",
+                    "mode": "managed",
+                    "type": "random_string",
+                    "name": "acre_group_name",
+                    "provider_name": "registry.terraform.io/hashicorp/random",
+                    "schema_version": 1,
+                    "values": {
+                        "keepers": null,
+                        "length": 8,
+                        "lower": true,
+                        "min_lower": 0,
+                        "min_numeric": 0,
+                        "min_special": 0,
+                        "min_upper": 0,
+                        "number": false,
+                        "override_special": null,
+                        "special": false,
+                        "upper": false
+                    }
+                },
+                {
+                    "address": "random_string.acre_name_1",
+                    "mode": "managed",
+                    "type": "random_string",
+                    "name": "acre_name_1",
+                    "provider_name": "registry.terraform.io/hashicorp/random",
+                    "schema_version": 1,
+                    "values": {
+                        "keepers": null,
+                        "length": 4,
+                        "lower": true,
+                        "min_lower": 0,
+                        "min_numeric": 0,
+                        "min_special": 0,
+                        "min_upper": 0,
+                        "number": false,
+                        "override_special": null,
+                        "special": false,
+                        "upper": false
+                    }
+                },
+                {
+                    "address": "random_string.acre_name_2",
+                    "mode": "managed",
+                    "type": "random_string",
+                    "name": "acre_name_2",
+                    "provider_name": "registry.terraform.io/hashicorp/random",
+                    "schema_version": 1,
+                    "values": {
+                        "keepers": null,
+                        "length": 4,
+                        "lower": true,
+                        "min_lower": 0,
+                        "min_numeric": 0,
+                        "min_special": 0,
+                        "min_upper": 0,
+                        "number": false,
+                        "override_special": null,
+                        "special": false,
+                        "upper": false
+                    }
+                },
+                {
+                    "address": "random_string.client_vm_name",
+                    "mode": "managed",
+                    "type": "random_string",
+                    "name": "client_vm_name",
+                    "provider_name": "registry.terraform.io/hashicorp/random",
+                    "schema_version": 1,
+                    "values": {
+                        "keepers": null,
+                        "length": 4,
+                        "lower": true,
+                        "min_lower": 0,
+                        "min_numeric": 0,
+                        "min_special": 0,
+                        "min_upper": 0,
+                        "number": true,
+                        "override_special": null,
+                        "special": false,
+                        "upper": false
+                    }
+                },
+                {
+                    "address": "random_string.resource_group_name",
+                    "mode": "managed",
+                    "type": "random_string",
+                    "name": "resource_group_name",
+                    "provider_name": "registry.terraform.io/hashicorp/random",
+                    "schema_version": 1,
+                    "values": {
+                        "keepers": null,
+                        "length": 4,
+                        "lower": true,
+                        "min_lower": 0,
+                        "min_numeric": 0,
+                        "min_special": 0,
+                        "min_upper": 0,
+                        "number": false,
+                        "override_special": null,
+                        "special": false,
+                        "upper": false
+                    }
+                },
+                {
+                    "address": "tls_private_key.example_ssh",
+                    "mode": "managed",
+                    "type": "tls_private_key",
+                    "name": "example_ssh",
+                    "provider_name": "registry.terraform.io/hashicorp/tls",
+                    "schema_version": 0,
+                    "values": {
+                        "algorithm": "RSA",
+                        "ecdsa_curve": "P224",
+                        "rsa_bits": 4096
+                    }
+                }
+            ]
+        }
+    },
+    "resource_changes": [
+        {
+            "address": "azurerm_linux_virtual_machine.myterraformvm",
+            "mode": "managed",
+            "type": "azurerm_linux_virtual_machine",
+            "name": "myterraformvm",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "additional_capabilities": [],
+                    "admin_password": null,
+                    "admin_ssh_key": [
+                        {
+                            "username": "azureuser"
+                        }
+                    ],
+                    "admin_username": "azureuser",
+                    "allow_extension_operations": true,
+                    "availability_set_id": null,
+                    "boot_diagnostics": [
+                        {}
+                    ],
+                    "computer_name": "myvm",
+                    "custom_data": "H4sIAAAAAAAA/2SRQYsUMRCF74H+D0UvLMqSaT0JvXjQdQ+CozCo4EnSSU13MUmlTSrDrr9e0otDD32r79WjqvLyEFmQRX9/nrGHULzQbJJ0gZ7Q3cMQCzuTnt+3+8/7x4/ffnz99OHwq1WV9E9MmSL38Hb3plGN0nptatRldjKcj5j0I9voiMce3g0kK8OyXPBJOutjcdpGPtLYqD0F3Ky5WXuUuoED/imU0MFs7MmMmNX/olcAGkyRWN0XCOaEC1yK0Vpt7+6WerYJtcMz+gX/ehpW6GkIGKyxE7prGc/IcgWrfpyRc/YrZSSpxz/EEAy7DBIhFVapsA3u5fB2JAHrIyNMInPuu24kmcqwszF0B3SUv5ghdwGDEKbfA7KdgkknuL2FV9bBpnG/vD9hjQM0natx171EWRJWrJkAcRbj/esqpAA6Hbez2s2Xa92ofwEAAP//irchEVECAAA=",
+                    "dedicated_host_id": null,
+                    "disable_password_authentication": true,
+                    "encryption_at_host_enabled": null,
+                    "eviction_policy": null,
+                    "extensions_time_budget": "PT1H30M",
+                    "identity": [],
+                    "license_type": null,
+                    "location": "eastus2",
+                    "max_bid_price": -1,
+                    "os_disk": [
+                        {
+                            "caching": "ReadWrite",
+                            "diff_disk_settings": [],
+                            "disk_encryption_set_id": null,
+                            "name": "myOsDisk",
+                            "storage_account_type": "Premium_LRS",
+                            "write_accelerator_enabled": false
+                        }
+                    ],
+                    "plan": [],
+                    "platform_fault_domain": -1,
+                    "priority": "Regular",
+                    "provision_vm_agent": true,
+                    "proximity_placement_group_id": null,
+                    "secret": [],
+                    "size": "Standard_DS1_v2",
+                    "source_image_id": null,
+                    "source_image_reference": [
+                        {
+                            "offer": "UbuntuServer",
+                            "publisher": "Canonical",
+                            "sku": "18.04-LTS",
+                            "version": "latest"
+                        }
+                    ],
+                    "tags": {
+                        "environment": "Terraform Demo"
+                    },
+                    "timeouts": null,
+                    "virtual_machine_scale_set_id": null
+                },
+                "after_unknown": {
+                    "additional_capabilities": [],
+                    "admin_ssh_key": [
+                        {
+                            "public_key": true
+                        }
+                    ],
+                    "boot_diagnostics": [
+                        {
+                            "storage_account_uri": true
+                        }
+                    ],
+                    "id": true,
+                    "identity": [],
+                    "name": true,
+                    "network_interface_ids": true,
+                    "os_disk": [
+                        {
+                            "diff_disk_settings": [],
+                            "disk_size_gb": true
+                        }
+                    ],
+                    "plan": [],
+                    "private_ip_address": true,
+                    "private_ip_addresses": true,
+                    "public_ip_address": true,
+                    "public_ip_addresses": true,
+                    "resource_group_name": true,
+                    "secret": [],
+                    "source_image_reference": [
+                        {}
+                    ],
+                    "tags": {},
+                    "virtual_machine_id": true,
+                    "zone": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "additional_capabilities": [],
+                    "admin_ssh_key": [
+                        {}
+                    ],
+                    "boot_diagnostics": [
+                        {}
+                    ],
+                    "identity": [],
+                    "network_interface_ids": [],
+                    "os_disk": [
+                        {
+                            "diff_disk_settings": []
+                        }
+                    ],
+                    "plan": [],
+                    "private_ip_addresses": [],
+                    "public_ip_addresses": [],
+                    "secret": [],
+                    "source_image_reference": [
+                        {}
+                    ],
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "azurerm_network_interface.myterraformnic",
+            "mode": "managed",
+            "type": "azurerm_network_interface",
+            "name": "myterraformnic",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "enable_accelerated_networking": false,
+                    "enable_ip_forwarding": false,
+                    "ip_configuration": [
+                        {
+                            "name": "myNicConfiguration",
+                            "private_ip_address_allocation": "dynamic",
+                            "private_ip_address_version": "IPv4"
+                        }
+                    ],
+                    "location": "eastus2",
+                    "name": "myNIC",
+                    "tags": {
+                        "environment": "Terraform Demo"
+                    },
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "applied_dns_servers": true,
+                    "dns_servers": true,
+                    "id": true,
+                    "internal_dns_name_label": true,
+                    "internal_domain_name_suffix": true,
+                    "ip_configuration": [
+                        {
+                            "primary": true,
+                            "private_ip_address": true,
+                            "public_ip_address_id": true,
+                            "subnet_id": true
+                        }
+                    ],
+                    "mac_address": true,
+                    "private_ip_address": true,
+                    "private_ip_addresses": true,
+                    "resource_group_name": true,
+                    "tags": {},
+                    "virtual_machine_id": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "applied_dns_servers": [],
+                    "dns_servers": [],
+                    "ip_configuration": [
+                        {}
+                    ],
+                    "private_ip_addresses": [],
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "azurerm_network_interface_security_group_association.example",
+            "mode": "managed",
+            "type": "azurerm_network_interface_security_group_association",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "id": true,
+                    "network_interface_id": true,
+                    "network_security_group_id": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        },
+        {
+            "address": "azurerm_network_security_group.myterraformnsg",
+            "mode": "managed",
+            "type": "azurerm_network_security_group",
+            "name": "myterraformnsg",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "location": "eastus2",
+                    "name": "myNetworkSecurityGroup",
+                    "security_rule": [
+                        {
+                            "access": "Allow",
+                            "description": "",
+                            "destination_address_prefix": "*",
+                            "destination_address_prefixes": [],
+                            "destination_application_security_group_ids": [],
+                            "destination_port_range": "22",
+                            "destination_port_ranges": [],
+                            "direction": "Inbound",
+                            "name": "SSH",
+                            "priority": 1001,
+                            "protocol": "Tcp",
+                            "source_address_prefix": "*",
+                            "source_address_prefixes": [],
+                            "source_application_security_group_ids": [],
+                            "source_port_range": "*",
+                            "source_port_ranges": []
+                        }
+                    ],
+                    "tags": {
+                        "environment": "Terraform Demo"
+                    },
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "id": true,
+                    "resource_group_name": true,
+                    "security_rule": [
+                        {
+                            "destination_address_prefixes": [],
+                            "destination_application_security_group_ids": [],
+                            "destination_port_ranges": [],
+                            "source_address_prefixes": [],
+                            "source_application_security_group_ids": [],
+                            "source_port_ranges": []
+                        }
+                    ],
+                    "tags": {}
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "security_rule": [
+                        {
+                            "destination_address_prefixes": [],
+                            "destination_application_security_group_ids": [],
+                            "destination_port_ranges": [],
+                            "source_address_prefixes": [],
+                            "source_application_security_group_ids": [],
+                            "source_port_ranges": []
+                        }
+                    ],
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "azurerm_public_ip.myterraformpublicip",
+            "mode": "managed",
+            "type": "azurerm_public_ip",
+            "name": "myterraformpublicip",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "allocation_method": "Dynamic",
+                    "domain_name_label": null,
+                    "idle_timeout_in_minutes": 4,
+                    "ip_version": "IPv4",
+                    "location": "eastus2",
+                    "name": "myPublicIP",
+                    "public_ip_prefix_id": null,
+                    "reverse_fqdn": null,
+                    "sku": "Basic",
+                    "tags": {
+                        "environment": "Terraform Demo"
+                    },
+                    "timeouts": null,
+                    "zones": null
+                },
+                "after_unknown": {
+                    "fqdn": true,
+                    "id": true,
+                    "ip_address": true,
+                    "resource_group_name": true,
+                    "tags": {}
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "azurerm_resource_group.resource_group",
+            "mode": "managed",
+            "type": "azurerm_resource_group",
+            "name": "resource_group",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "tags": {
+                        "owner": "bamosACRE"
+                    },
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "id": true,
+                    "location": true,
+                    "name": true,
+                    "tags": {}
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "azurerm_storage_account.mystorageaccount",
+            "mode": "managed",
+            "type": "azurerm_storage_account",
+            "name": "mystorageaccount",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "account_kind": "StorageV2",
+                    "account_replication_type": "LRS",
+                    "account_tier": "Standard",
+                    "allow_blob_public_access": false,
+                    "custom_domain": [],
+                    "enable_https_traffic_only": true,
+                    "is_hns_enabled": false,
+                    "location": "eastus2",
+                    "min_tls_version": "TLS1_0",
+                    "static_website": [],
+                    "tags": {
+                        "environment": "Terraform Demo"
+                    },
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "access_tier": true,
+                    "blob_properties": true,
+                    "custom_domain": [],
+                    "id": true,
+                    "identity": true,
+                    "large_file_share_enabled": true,
+                    "name": true,
+                    "network_rules": true,
+                    "primary_access_key": true,
+                    "primary_blob_connection_string": true,
+                    "primary_blob_endpoint": true,
+                    "primary_blob_host": true,
+                    "primary_connection_string": true,
+                    "primary_dfs_endpoint": true,
+                    "primary_dfs_host": true,
+                    "primary_file_endpoint": true,
+                    "primary_file_host": true,
+                    "primary_location": true,
+                    "primary_queue_endpoint": true,
+                    "primary_queue_host": true,
+                    "primary_table_endpoint": true,
+                    "primary_table_host": true,
+                    "primary_web_endpoint": true,
+                    "primary_web_host": true,
+                    "queue_properties": true,
+                    "resource_group_name": true,
+                    "secondary_access_key": true,
+                    "secondary_blob_connection_string": true,
+                    "secondary_blob_endpoint": true,
+                    "secondary_blob_host": true,
+                    "secondary_connection_string": true,
+                    "secondary_dfs_endpoint": true,
+                    "secondary_dfs_host": true,
+                    "secondary_file_endpoint": true,
+                    "secondary_file_host": true,
+                    "secondary_location": true,
+                    "secondary_queue_endpoint": true,
+                    "secondary_queue_host": true,
+                    "secondary_table_endpoint": true,
+                    "secondary_table_host": true,
+                    "secondary_web_endpoint": true,
+                    "secondary_web_host": true,
+                    "static_website": [],
+                    "tags": {}
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "blob_properties": [],
+                    "custom_domain": [],
+                    "identity": [],
+                    "network_rules": [],
+                    "queue_properties": [],
+                    "static_website": [],
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "azurerm_subnet.myterraformsubnet",
+            "mode": "managed",
+            "type": "azurerm_subnet",
+            "name": "myterraformsubnet",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "address_prefixes": [
+                        "10.0.1.0/24"
+                    ],
+                    "delegation": [],
+                    "enforce_private_link_endpoint_network_policies": false,
+                    "enforce_private_link_service_network_policies": false,
+                    "name": "mySubnet",
+                    "service_endpoint_policy_ids": null,
+                    "service_endpoints": null,
+                    "timeouts": null,
+                    "virtual_network_name": "myVnet"
+                },
+                "after_unknown": {
+                    "address_prefix": true,
+                    "address_prefixes": [
+                        false
+                    ],
+                    "delegation": [],
+                    "id": true,
+                    "resource_group_name": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "address_prefixes": [
+                        false
+                    ],
+                    "delegation": []
+                }
+            }
+        },
+        {
+            "address": "azurerm_virtual_network.myterraformnetwork",
+            "mode": "managed",
+            "type": "azurerm_virtual_network",
+            "name": "myterraformnetwork",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "address_space": [
+                        "10.0.0.0/16"
+                    ],
+                    "bgp_community": null,
+                    "ddos_protection_plan": [],
+                    "dns_servers": null,
+                    "location": "eastus2",
+                    "name": "myVnet",
+                    "tags": {
+                        "environment": "Terraform Demo"
+                    },
+                    "timeouts": null,
+                    "vm_protection_enabled": false
+                },
+                "after_unknown": {
+                    "address_space": [
+                        false
+                    ],
+                    "ddos_protection_plan": [],
+                    "guid": true,
+                    "id": true,
+                    "resource_group_name": true,
+                    "subnet": true,
+                    "tags": {}
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "address_space": [
+                        false
+                    ],
+                    "ddos_protection_plan": [],
+                    "subnet": [],
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "random_id.randomId",
+            "mode": "managed",
+            "type": "random_id",
+            "name": "randomId",
+            "provider_name": "registry.terraform.io/hashicorp/random",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "byte_length": 8,
+                    "prefix": null
+                },
+                "after_unknown": {
+                    "b64_std": true,
+                    "b64_url": true,
+                    "dec": true,
+                    "hex": true,
+                    "id": true,
+                    "keepers": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "keepers": {}
+                }
+            }
+        },
+        {
+            "address": "random_shuffle.kylek",
+            "mode": "managed",
+            "type": "random_shuffle",
+            "name": "kylek",
+            "provider_name": "registry.terraform.io/hashicorp/random",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "input": [
+                        "Central US",
+                        "East US",
+                        "East US 2",
+                        "West US 2"
+                    ],
+                    "keepers": null,
+                    "result_count": 2,
+                    "seed": null
+                },
+                "after_unknown": {
+                    "id": true,
+                    "input": [
+                        false,
+                        false,
+                        false,
+                        false
+                    ],
+                    "result": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "input": [
+                        false,
+                        false,
+                        false,
+                        false
+                    ],
+                    "result": []
+                }
+            }
+        },
+        {
+            "address": "random_string.acre_group_name",
+            "mode": "managed",
+            "type": "random_string",
+            "name": "acre_group_name",
+            "provider_name": "registry.terraform.io/hashicorp/random",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "keepers": null,
+                    "length": 8,
+                    "lower": true,
+                    "min_lower": 0,
+                    "min_numeric": 0,
+                    "min_special": 0,
+                    "min_upper": 0,
+                    "number": false,
+                    "override_special": null,
+                    "special": false,
+                    "upper": false
+                },
+                "after_unknown": {
+                    "id": true,
+                    "result": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        },
+        {
+            "address": "random_string.acre_name_1",
+            "mode": "managed",
+            "type": "random_string",
+            "name": "acre_name_1",
+            "provider_name": "registry.terraform.io/hashicorp/random",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "keepers": null,
+                    "length": 4,
+                    "lower": true,
+                    "min_lower": 0,
+                    "min_numeric": 0,
+                    "min_special": 0,
+                    "min_upper": 0,
+                    "number": false,
+                    "override_special": null,
+                    "special": false,
+                    "upper": false
+                },
+                "after_unknown": {
+                    "id": true,
+                    "result": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        },
+        {
+            "address": "random_string.acre_name_2",
+            "mode": "managed",
+            "type": "random_string",
+            "name": "acre_name_2",
+            "provider_name": "registry.terraform.io/hashicorp/random",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "keepers": null,
+                    "length": 4,
+                    "lower": true,
+                    "min_lower": 0,
+                    "min_numeric": 0,
+                    "min_special": 0,
+                    "min_upper": 0,
+                    "number": false,
+                    "override_special": null,
+                    "special": false,
+                    "upper": false
+                },
+                "after_unknown": {
+                    "id": true,
+                    "result": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        },
+        {
+            "address": "random_string.client_vm_name",
+            "mode": "managed",
+            "type": "random_string",
+            "name": "client_vm_name",
+            "provider_name": "registry.terraform.io/hashicorp/random",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "keepers": null,
+                    "length": 4,
+                    "lower": true,
+                    "min_lower": 0,
+                    "min_numeric": 0,
+                    "min_special": 0,
+                    "min_upper": 0,
+                    "number": true,
+                    "override_special": null,
+                    "special": false,
+                    "upper": false
+                },
+                "after_unknown": {
+                    "id": true,
+                    "result": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        },
+        {
+            "address": "random_string.resource_group_name",
+            "mode": "managed",
+            "type": "random_string",
+            "name": "resource_group_name",
+            "provider_name": "registry.terraform.io/hashicorp/random",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "keepers": null,
+                    "length": 4,
+                    "lower": true,
+                    "min_lower": 0,
+                    "min_numeric": 0,
+                    "min_special": 0,
+                    "min_upper": 0,
+                    "number": false,
+                    "override_special": null,
+                    "special": false,
+                    "upper": false
+                },
+                "after_unknown": {
+                    "id": true,
+                    "result": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        },
+        {
+            "address": "tls_private_key.example_ssh",
+            "mode": "managed",
+            "type": "tls_private_key",
+            "name": "example_ssh",
+            "provider_name": "registry.terraform.io/hashicorp/tls",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "algorithm": "RSA",
+                    "ecdsa_curve": "P224",
+                    "rsa_bits": 4096
+                },
+                "after_unknown": {
+                    "id": true,
+                    "private_key_pem": true,
+                    "public_key_fingerprint_md5": true,
+                    "public_key_openssh": true,
+                    "public_key_pem": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        }
+    ],
+    "output_changes": {
+        "kylek_config": {
+            "actions": [
+                "create"
+            ],
+            "before": null,
+            "after_unknown": true,
+            "before_sensitive": true,
+            "after_sensitive": true
+        },
+        "tls_private_key": {
+            "actions": [
+                "create"
+            ],
+            "before": null,
+            "after_unknown": true,
+            "before_sensitive": true,
+            "after_sensitive": true
+        }
+    },
+    "prior_state": {
+        "format_version": "0.1",
+        "terraform_version": "0.15.0",
+        "values": {
+            "root_module": {
+                "resources": [
+                    {
+                        "address": "data.azuread_service_principal.kylek",
+                        "mode": "data",
+                        "type": "azuread_service_principal",
+                        "name": "kylek",
+                        "provider_name": "registry.terraform.io/hashicorp/azuread",
+                        "schema_version": 0,
+                        "values": {
+                            "app_roles": [],
+                            "application_id": "e8121ee7-08d3-40ae-b7b1-2494b7d45a30",
+                            "display_name": "bamosACRE",
+                            "id": "2d21a1a5-ab70-4688-a552-2e8db15d5ec0",
+                            "oauth2_permissions": [
+                                {
+                                    "admin_consent_description": "Allow the application to access bamosACRE on behalf of the signed-in user.",
+                                    "admin_consent_display_name": "Access bamosACRE",
+                                    "id": "76f43e40-733a-42cb-8d49-e41d3d8ee95f",
+                                    "is_enabled": true,
+                                    "type": "User",
+                                    "user_consent_description": "Allow the application to access bamosACRE on your behalf.",
+                                    "user_consent_display_name": "Access bamosACRE",
+                                    "value": "user_impersonation"
+                                }
+                            ],
+                            "object_id": "2d21a1a5-ab70-4688-a552-2e8db15d5ec0"
+                        }
+                    },
+                    {
+                        "address": "data.template_cloudinit_config.config",
+                        "mode": "data",
+                        "type": "template_cloudinit_config",
+                        "name": "config",
+                        "provider_name": "registry.terraform.io/hashicorp/template",
+                        "schema_version": 0,
+                        "values": {
+                            "base64_encode": true,
+                            "gzip": true,
+                            "id": "4100136878",
+                            "part": [
+                                {
+                                    "content": "#cloud-config\n\n# Required packages\npackages:\n  - autoconf\n  - automake\n  - make\n  - gcc-c++\n  - pcre-devel\n  - zlib-devel\n  - libmemcached-devel\n  - libevent\n  - libevent-devel\n  - openssl-devel\n  - git\n\n# Commands to run\nruncmd:\n  - \"git clone https://github.com/RedisLabs/memtier_benchmark \u0026\u0026 (cd memtier_benchmark; autoreconf -iv \u0026\u0026 ./configure \u0026\u0026 make install) \u0026\u0026 rm -rf memtier_benchmark\"\n",
+                                    "content_type": "text/cloud-config",
+                                    "filename": "",
+                                    "merge_type": ""
+                                }
+                            ],
+                            "rendered": "H4sIAAAAAAAA/2SRQYsUMRCF74H+D0UvLMqSaT0JvXjQdQ+CozCo4EnSSU13MUmlTSrDrr9e0otDD32r79WjqvLyEFmQRX9/nrGHULzQbJJ0gZ7Q3cMQCzuTnt+3+8/7x4/ffnz99OHwq1WV9E9MmSL38Hb3plGN0nptatRldjKcj5j0I9voiMce3g0kK8OyXPBJOutjcdpGPtLYqD0F3Ky5WXuUuoED/imU0MFs7MmMmNX/olcAGkyRWN0XCOaEC1yK0Vpt7+6WerYJtcMz+gX/ehpW6GkIGKyxE7prGc/IcgWrfpyRc/YrZSSpxz/EEAy7DBIhFVapsA3u5fB2JAHrIyNMInPuu24kmcqwszF0B3SUv5ghdwGDEKbfA7KdgkknuL2FV9bBpnG/vD9hjQM0natx171EWRJWrJkAcRbj/esqpAA6Hbez2s2Xa92ofwEAAP//irchEVECAAA="
+                        }
+                    },
+                    {
+                        "address": "data.template_file.script",
+                        "mode": "data",
+                        "type": "template_file",
+                        "name": "script",
+                        "provider_name": "registry.terraform.io/hashicorp/template",
+                        "schema_version": 0,
+                        "values": {
+                            "filename": null,
+                            "id": "33e53376efc4403b5368c9389aeb88d213e05005849bc1f1ce28f1a1a6a02631",
+                            "rendered": "#cloud-config\n\n# Required packages\npackages:\n  - autoconf\n  - automake\n  - make\n  - gcc-c++\n  - pcre-devel\n  - zlib-devel\n  - libmemcached-devel\n  - libevent\n  - libevent-devel\n  - openssl-devel\n  - git\n\n# Commands to run\nruncmd:\n  - \"git clone https://github.com/RedisLabs/memtier_benchmark \u0026\u0026 (cd memtier_benchmark; autoreconf -iv \u0026\u0026 ./configure \u0026\u0026 make install) \u0026\u0026 rm -rf memtier_benchmark\"\n",
+                            "template": "#cloud-config\n\n# Required packages\npackages:\n  - autoconf\n  - automake\n  - make\n  - gcc-c++\n  - pcre-devel\n  - zlib-devel\n  - libmemcached-devel\n  - libevent\n  - libevent-devel\n  - openssl-devel\n  - git\n\n# Commands to run\nruncmd:\n  - \"git clone https://github.com/RedisLabs/memtier_benchmark \u0026\u0026 (cd memtier_benchmark; autoreconf -iv \u0026\u0026 ./configure \u0026\u0026 make install) \u0026\u0026 rm -rf memtier_benchmark\"\n",
+                            "vars": null
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "configuration": {
+        "provider_config": {
+            "azuread": {
+                "name": "azuread",
+                "version_constraint": "1.4.0",
+                "expressions": {
+                    "client_id": {
+                        "references": [
+                            "var.client_id"
+                        ]
+                    },
+                    "client_secret": {
+                        "references": [
+                            "var.client_secret"
+                        ]
+                    },
+                    "tenant_id": {
+                        "references": [
+                            "var.tenant_id"
+                        ]
+                    }
+                }
+            },
+            "azurerm": {
+                "name": "azurerm",
+                "version_constraint": "2.53.0",
+                "expressions": {
+                    "client_id": {
+                        "references": [
+                            "var.client_id"
+                        ]
+                    },
+                    "client_secret": {
+                        "references": [
+                            "var.client_secret"
+                        ]
+                    },
+                    "environment": {
+                        "references": [
+                            "var.cloud_name"
+                        ]
+                    },
+                    "features": [
+                        {
+                            "template_deployment": [
+                                {
+                                    "delete_nested_items_during_deletion": {
+                                        "constant_value": false
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "subscription_id": {
+                        "references": [
+                            "var.subscription_id"
+                        ]
+                    },
+                    "tenant_id": {
+                        "references": [
+                            "var.tenant_id"
+                        ]
+                    }
+                }
+            },
+            "random": {
+                "name": "random",
+                "version_constraint": "3.0.1"
+            }
+        },
+        "root_module": {
+            "outputs": {
+                "kylek_config": {
+                    "sensitive": true,
+                    "expression": {
+                        "references": [
+                            "local.kylek_config"
+                        ]
+                    }
+                },
+                "tls_private_key": {
+                    "sensitive": true,
+                    "expression": {
+                        "references": [
+                            "tls_private_key.example_ssh"
+                        ]
+                    }
+                }
+            },
+            "resources": [
+                {
+                    "address": "azurerm_linux_virtual_machine.myterraformvm",
+                    "mode": "managed",
+                    "type": "azurerm_linux_virtual_machine",
+                    "name": "myterraformvm",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                        "admin_ssh_key": [
+                            {
+                                "public_key": {
+                                    "references": [
+                                        "tls_private_key.example_ssh"
+                                    ]
+                                },
+                                "username": {
+                                    "constant_value": "azureuser"
+                                }
+                            }
+                        ],
+                        "admin_username": {
+                            "constant_value": "azureuser"
+                        },
+                        "boot_diagnostics": [
+                            {
+                                "storage_account_uri": {
+                                    "references": [
+                                        "azurerm_storage_account.mystorageaccount"
+                                    ]
+                                }
+                            }
+                        ],
+                        "computer_name": {
+                            "constant_value": "myvm"
+                        },
+                        "custom_data": {
+                            "references": [
+                                "data.template_cloudinit_config.config"
+                            ]
+                        },
+                        "disable_password_authentication": {
+                            "constant_value": true
+                        },
+                        "location": {
+                            "references": [
+                                "var.client_region"
+                            ]
+                        },
+                        "name": {
+                            "references": [
+                                "var.client_vm_name_root",
+                                "random_string.client_vm_name"
+                            ]
+                        },
+                        "network_interface_ids": {
+                            "references": [
+                                "azurerm_network_interface.myterraformnic"
+                            ]
+                        },
+                        "os_disk": [
+                            {
+                                "caching": {
+                                    "constant_value": "ReadWrite"
+                                },
+                                "name": {
+                                    "constant_value": "myOsDisk"
+                                },
+                                "storage_account_type": {
+                                    "constant_value": "Premium_LRS"
+                                }
+                            }
+                        ],
+                        "resource_group_name": {
+                            "references": [
+                                "azurerm_resource_group.resource_group"
+                            ]
+                        },
+                        "size": {
+                            "constant_value": "Standard_DS1_v2"
+                        },
+                        "source_image_reference": [
+                            {
+                                "offer": {
+                                    "constant_value": "UbuntuServer"
+                                },
+                                "publisher": {
+                                    "constant_value": "Canonical"
+                                },
+                                "sku": {
+                                    "constant_value": "18.04-LTS"
+                                },
+                                "version": {
+                                    "constant_value": "latest"
+                                }
+                            }
+                        ],
+                        "tags": {
+                            "constant_value": {
+                                "environment": "Terraform Demo"
+                            }
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "azurerm_network_interface.myterraformnic",
+                    "mode": "managed",
+                    "type": "azurerm_network_interface",
+                    "name": "myterraformnic",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                        "ip_configuration": [
+                            {
+                                "name": {
+                                    "constant_value": "myNicConfiguration"
+                                },
+                                "private_ip_address_allocation": {
+                                    "constant_value": "Dynamic"
+                                },
+                                "public_ip_address_id": {
+                                    "references": [
+                                        "azurerm_public_ip.myterraformpublicip"
+                                    ]
+                                },
+                                "subnet_id": {
+                                    "references": [
+                                        "azurerm_subnet.myterraformsubnet"
+                                    ]
+                                }
+                            }
+                        ],
+                        "location": {
+                            "references": [
+                                "var.client_region"
+                            ]
+                        },
+                        "name": {
+                            "constant_value": "myNIC"
+                        },
+                        "resource_group_name": {
+                            "references": [
+                                "azurerm_resource_group.resource_group"
+                            ]
+                        },
+                        "tags": {
+                            "constant_value": {
+                                "environment": "Terraform Demo"
+                            }
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "azurerm_network_interface_security_group_association.example",
+                    "mode": "managed",
+                    "type": "azurerm_network_interface_security_group_association",
+                    "name": "example",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                        "network_interface_id": {
+                            "references": [
+                                "azurerm_network_interface.myterraformnic"
+                            ]
+                        },
+                        "network_security_group_id": {
+                            "references": [
+                                "azurerm_network_security_group.myterraformnsg"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "azurerm_network_security_group.myterraformnsg",
+                    "mode": "managed",
+                    "type": "azurerm_network_security_group",
+                    "name": "myterraformnsg",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                        "location": {
+                            "references": [
+                                "var.client_region"
+                            ]
+                        },
+                        "name": {
+                            "constant_value": "myNetworkSecurityGroup"
+                        },
+                        "resource_group_name": {
+                            "references": [
+                                "azurerm_resource_group.resource_group"
+                            ]
+                        },
+                        "tags": {
+                            "constant_value": {
+                                "environment": "Terraform Demo"
+                            }
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "azurerm_public_ip.myterraformpublicip",
+                    "mode": "managed",
+                    "type": "azurerm_public_ip",
+                    "name": "myterraformpublicip",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                        "allocation_method": {
+                            "constant_value": "Dynamic"
+                        },
+                        "location": {
+                            "references": [
+                                "var.client_region"
+                            ]
+                        },
+                        "name": {
+                            "constant_value": "myPublicIP"
+                        },
+                        "resource_group_name": {
+                            "references": [
+                                "azurerm_resource_group.resource_group"
+                            ]
+                        },
+                        "tags": {
+                            "constant_value": {
+                                "environment": "Terraform Demo"
+                            }
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "azurerm_resource_group.resource_group",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "name": "resource_group",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                        "location": {
+                            "references": [
+                                "random_shuffle.kylek"
+                            ]
+                        },
+                        "name": {
+                            "references": [
+                                "random_string.resource_group_name"
+                            ]
+                        },
+                        "tags": {
+                            "references": [
+                                "var.tags",
+                                "data.azuread_service_principal.kylek"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "azurerm_storage_account.mystorageaccount",
+                    "mode": "managed",
+                    "type": "azurerm_storage_account",
+                    "name": "mystorageaccount",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                        "account_replication_type": {
+                            "constant_value": "LRS"
+                        },
+                        "account_tier": {
+                            "constant_value": "Standard"
+                        },
+                        "location": {
+                            "references": [
+                                "var.client_region"
+                            ]
+                        },
+                        "name": {
+                            "references": [
+                                "random_id.randomId"
+                            ]
+                        },
+                        "resource_group_name": {
+                            "references": [
+                                "azurerm_resource_group.resource_group"
+                            ]
+                        },
+                        "tags": {
+                            "constant_value": {
+                                "environment": "Terraform Demo"
+                            }
+                        }
+                    },
+                    "schema_version": 2
+                },
+                {
+                    "address": "azurerm_subnet.myterraformsubnet",
+                    "mode": "managed",
+                    "type": "azurerm_subnet",
+                    "name": "myterraformsubnet",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                        "address_prefixes": {
+                            "constant_value": [
+                                "10.0.1.0/24"
+                            ]
+                        },
+                        "name": {
+                            "constant_value": "mySubnet"
+                        },
+                        "resource_group_name": {
+                            "references": [
+                                "azurerm_resource_group.resource_group"
+                            ]
+                        },
+                        "virtual_network_name": {
+                            "references": [
+                                "azurerm_virtual_network.myterraformnetwork"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "azurerm_virtual_network.myterraformnetwork",
+                    "mode": "managed",
+                    "type": "azurerm_virtual_network",
+                    "name": "myterraformnetwork",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                        "address_space": {
+                            "constant_value": [
+                                "10.0.0.0/16"
+                            ]
+                        },
+                        "location": {
+                            "references": [
+                                "var.client_region"
+                            ]
+                        },
+                        "name": {
+                            "constant_value": "myVnet"
+                        },
+                        "resource_group_name": {
+                            "references": [
+                                "azurerm_resource_group.resource_group"
+                            ]
+                        },
+                        "tags": {
+                            "constant_value": {
+                                "environment": "Terraform Demo"
+                            }
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "random_id.randomId",
+                    "mode": "managed",
+                    "type": "random_id",
+                    "name": "randomId",
+                    "provider_config_key": "random",
+                    "expressions": {
+                        "byte_length": {
+                            "constant_value": 8
+                        },
+                        "keepers": {
+                            "references": [
+                                "azurerm_resource_group.resource_group"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "random_shuffle.kylek",
+                    "mode": "managed",
+                    "type": "random_shuffle",
+                    "name": "kylek",
+                    "provider_config_key": "random",
+                    "expressions": {
+                        "input": {
+                            "constant_value": [
+                                "Central US",
+                                "East US",
+                                "East US 2",
+                                "West US 2"
+                            ]
+                        },
+                        "result_count": {
+                            "constant_value": 2
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "random_string.acre_group_name",
+                    "mode": "managed",
+                    "type": "random_string",
+                    "name": "acre_group_name",
+                    "provider_config_key": "random",
+                    "expressions": {
+                        "length": {
+                            "constant_value": 8
+                        },
+                        "number": {
+                            "constant_value": false
+                        },
+                        "special": {
+                            "constant_value": false
+                        },
+                        "upper": {
+                            "constant_value": false
+                        }
+                    },
+                    "schema_version": 1
+                },
+                {
+                    "address": "random_string.acre_name_1",
+                    "mode": "managed",
+                    "type": "random_string",
+                    "name": "acre_name_1",
+                    "provider_config_key": "random",
+                    "expressions": {
+                        "length": {
+                            "constant_value": 4
+                        },
+                        "number": {
+                            "constant_value": false
+                        },
+                        "special": {
+                            "constant_value": false
+                        },
+                        "upper": {
+                            "constant_value": false
+                        }
+                    },
+                    "schema_version": 1
+                },
+                {
+                    "address": "random_string.acre_name_2",
+                    "mode": "managed",
+                    "type": "random_string",
+                    "name": "acre_name_2",
+                    "provider_config_key": "random",
+                    "expressions": {
+                        "length": {
+                            "constant_value": 4
+                        },
+                        "number": {
+                            "constant_value": false
+                        },
+                        "special": {
+                            "constant_value": false
+                        },
+                        "upper": {
+                            "constant_value": false
+                        }
+                    },
+                    "schema_version": 1
+                },
+                {
+                    "address": "random_string.client_vm_name",
+                    "mode": "managed",
+                    "type": "random_string",
+                    "name": "client_vm_name",
+                    "provider_config_key": "random",
+                    "expressions": {
+                        "length": {
+                            "constant_value": 4
+                        },
+                        "number": {
+                            "constant_value": true
+                        },
+                        "special": {
+                            "constant_value": false
+                        },
+                        "upper": {
+                            "constant_value": false
+                        }
+                    },
+                    "schema_version": 1
+                },
+                {
+                    "address": "random_string.resource_group_name",
+                    "mode": "managed",
+                    "type": "random_string",
+                    "name": "resource_group_name",
+                    "provider_config_key": "random",
+                    "expressions": {
+                        "length": {
+                            "constant_value": 4
+                        },
+                        "number": {
+                            "constant_value": false
+                        },
+                        "special": {
+                            "constant_value": false
+                        },
+                        "upper": {
+                            "constant_value": false
+                        }
+                    },
+                    "schema_version": 1
+                },
+                {
+                    "address": "tls_private_key.example_ssh",
+                    "mode": "managed",
+                    "type": "tls_private_key",
+                    "name": "example_ssh",
+                    "provider_config_key": "tls",
+                    "expressions": {
+                        "algorithm": {
+                            "constant_value": "RSA"
+                        },
+                        "rsa_bits": {
+                            "constant_value": 4096
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "data.azuread_service_principal.kylek",
+                    "mode": "data",
+                    "type": "azuread_service_principal",
+                    "name": "kylek",
+                    "provider_config_key": "azuread",
+                    "expressions": {
+                        "application_id": {
+                            "references": [
+                                "var.client_id"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "data.template_cloudinit_config.config",
+                    "mode": "data",
+                    "type": "template_cloudinit_config",
+                    "name": "config",
+                    "provider_config_key": "template",
+                    "expressions": {
+                        "base64_encode": {
+                            "constant_value": true
+                        },
+                        "gzip": {
+                            "constant_value": true
+                        },
+                        "part": [
+                            {
+                                "content": {
+                                    "references": [
+                                        "data.template_file.script"
+                                    ]
+                                },
+                                "content_type": {
+                                    "constant_value": "text/cloud-config"
+                                }
+                            }
+                        ]
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "data.template_file.script",
+                    "mode": "data",
+                    "type": "template_file",
+                    "name": "script",
+                    "provider_config_key": "template",
+                    "expressions": {
+                        "template": {
+                            "references": [
+                                "path.module"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                }
+            ],
+            "variables": {
+                "acre_capacity": {
+                    "default": 2
+                },
+                "acre_client_protocol": {
+                    "default": "Encrypted"
+                },
+                "acre_cluster_policy": {
+                    "default": "EnterpriseCluster"
+                },
+                "acre_deployment_mode": {
+                    "default": "Incremental"
+                },
+                "acre_eviction_policy": {
+                    "default": "NoEviction"
+                },
+                "acre_sku": {
+                    "default": "Enterprise_E10"
+                },
+                "acre_template_path_1": {
+                    "default": "./ARM/ACRE/json1.template",
+                    "description": "Path to ARM template being sourced"
+                },
+                "acre_template_path_2": {
+                    "default": "./ARM/ACRE/json2.template",
+                    "description": "Path to ARM template being sourced"
+                },
+                "client_id": {
+                    "description": "Service Principal to use (az ad sp create-for-rbac ...)"
+                },
+                "client_region": {
+                    "default": "eastus2",
+                    "description": "The region where the client vm and associated resources are deployed"
+                },
+                "client_secret": {
+                    "description": "Client Secret for Service Principal"
+                },
+                "client_vm_name_root": {
+                    "default": "client-test-vm",
+                    "description": "The name of the client VM used to run memtier_benchmark"
+                },
+                "cloud_name": {
+                    "default": "public",
+                    "description": "The Azure cloud environment to use. Available values at https://www.terraform.io/docs/providers/azurerm/#environment"
+                },
+                "subscription_id": {},
+                "tags": {
+                    "default": {},
+                    "description": "Key/value tags to assign to all resources."
+                },
+                "tenant_id": {}
+            }
+        }
+    }
+}

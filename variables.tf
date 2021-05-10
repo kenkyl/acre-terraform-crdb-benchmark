@@ -77,3 +77,21 @@ variable "client_region" {
   type = string
   default = "eastus2"
 }
+
+##################################################################
+
+ variable "memtier_redis_server_address" {
+  description = "-s, --server=ADDR  Server address (default: localhost)"
+}
+
+variable "memtier_redis_port" {
+  description = "-p, --port=PORT  Server port (default: 6379)"
+}
+
+variable "memtier_data_input_1" {
+  description = "memtier data input (1st)"
+}
+
+variable "memtier_benchmark_1" {
+  description = "memtier benchmark code to run (1st)"
+}
