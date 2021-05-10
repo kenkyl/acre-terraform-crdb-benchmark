@@ -1,4 +1,4 @@
-resource "random_shuffle" "kylek" {
+resource "random_shuffle" "acre-aa-benchmark" {
   # Regions with 3 AZs
   input = [
     "Central US",
