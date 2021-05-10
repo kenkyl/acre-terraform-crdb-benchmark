@@ -123,6 +123,10 @@ data "template_file" "script" {
         memtier_redis_port =  var.memtier_redis_port
         memtier_data_input_1 = var.memtier_data_input_1
         memtier_benchmark_1 = var.memtier_benchmark_1
+        test_acre_url_1 = azurerm_resource_group_template_deployment.acre_1.properties.hostname
+        test_acre_url_2 = azurerm_resource_group_template_deployment.acre_2.properties.hostname
+        acre_port_1 = 10000
+        acre_port_2 = 10000
     }
 }
 

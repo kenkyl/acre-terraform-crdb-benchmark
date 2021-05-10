@@ -3,9 +3,10 @@ variable "acre_capacity" {
   default = 2
 }
 
+# Value should be either Encrypted or Plaintext
 variable "acre_client_protocol" {
   type    = string
-  default = "Encrypted"
+  default = "Plaintext"
 }
 
 variable "acre_cluster_policy" {
