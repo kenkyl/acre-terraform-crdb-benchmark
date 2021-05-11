@@ -1,14 +1,21 @@
+
+
 locals {
   acre-aa-benchmark_config = {
     acre_1              = azurerm_resource_group_template_deployment.acre_1.*
     #acre_2              = azurerm_resource_group_template_deployment.acre_2.*
     resource_group_name = azurerm_resource_group.resource_group.name
   }
+  secrets = {
+    keyVaultName = random_string.key_vault_name.result
+    secretName = random_string.secret_name.result
+  }
 }
 
-
-
-
+output "secrets" {
+  value = local.secrets
+  sensitive = false
+}
 
 output "acre-aa-benchmark_config" {
   value     = jsonencode(local.acre-aa-benchmark_config)
@@ -16,10 +23,6 @@ output "acre-aa-benchmark_config" {
 }
 
 ########################################################################### EDITS
-
-
-
-
 
 locals {
     host = azurerm_linux_virtual_machine.memtier_vm.public_ip_address

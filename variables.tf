@@ -47,6 +47,11 @@ variable "client_secret" {
   description = "Client Secret for Service Principal"
 }
 
+variable "key_vault_template" {
+  description = "Key vault for storing access keys"
+  default = "./ARM/keyvault.json"
+}
+
 variable "subscription_id" {
   type = string
 }

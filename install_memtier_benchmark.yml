@@ -15,7 +15,7 @@ runcmd:
   - "git clone https://github.com/RedisLabs/memtier_benchmark"
   - "cd memtier_benchmark"
   - "autoreconf -iv && ./configure && make install"
-  - "${memtier_data_input_1}  -s ${test_acre_url_1} -p ${acre_port_1}"
-  - "${memtier_benchmark_1}  -s ${test_acre_url_1} -p ${acre_port_1}"
+  - "${memtier_data_input_1}  -s ${test_acre_url_1} -p ${acre_port_1} -a ${access_key}"
+  - "${memtier_benchmark_1}  -s ${test_acre_url_1} -p ${acre_port_1} -a ${access_key}"
   
   #- "rm -rf memtier_benchmark" # if we want to remove the folder

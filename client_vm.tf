@@ -127,6 +127,8 @@ data "template_file" "script" {
         ## You cannot extract attributes from an ARM template, so the acre hostname must be built from other vars.
         test_acre_url_1 = format("acre-aa-benchmark%s.%s.redisenterprise.cache.azure.net", random_string.acre_name_1.result, random_shuffle.acre-aa-benchmark.result[0])
         acre_port_1 = "10000"
+        access_key = "hellowhy"
+        # access_key = data.azurerm_key_vault_secret.acre_1.value
     }
 }
 
@@ -178,4 +180,6 @@ resource "azurerm_linux_virtual_machine" "memtier_vm" {
     tags = {
         environment = "Terraform Demo"
     }
+
+    depends_on = [azurerm_resource_group_template_deployment.key_vault]
 }
