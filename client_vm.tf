@@ -105,6 +105,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
 }
 
 # Create (and display) an SSH key
+## TODO: export private key, in the mean time you can grab the key from terraform.tfstate instances private_key_pem
+## copy the key, put it in a .pem file, find and replace the \n with enter. 
+## Then open a cli, chmod 400 the pem key, then use it to access the instance
 resource "tls_private_key" "example_ssh" {
   algorithm = "RSA"
   rsa_bits = 4096
@@ -119,13 +122,15 @@ data "template_file" "script" {
     template = file("${path.module}/install_memtier_benchmark.yml")
 
     vars = {
-        memtier_redis_server_address = var.memtier_redis_server_address
-        memtier_redis_port =  var.memtier_redis_port
+        #memtier_redis_server_address = var.memtier_redis_server_address
+        #memtier_redis_port =  var.memtier_redis_port
         memtier_data_input_1 = var.memtier_data_input_1
         memtier_benchmark_1 = var.memtier_benchmark_1
-        #test_acre_url_1 = azurerm_resource_group_template_deployment.acre_1.properties.hostname
-        #test_acre_url_2 = azurerm_resource_group_template_deployment.acre_2.properties.hostname
-        #acre_port_1 = 10000
+        # redisenterprise.cache.azure.net
+        ## You cannot extract attributes from an ARM template, so the acre hostname must be built from other vars.
+        test_acre_url_1 = format("acre-aa-benchmark%s.%s.redisenterprise.cache.azure.net", random_string.acre_name_1.result, random_shuffle.acre-aa-benchmark.result[0])
+        #test_acre_url_1 = azurerm_resource_group_template_deployment.acre_1.output_content
+        acre_port_1 = "10000"
         #acre_port_2 = 10000
     }
 }

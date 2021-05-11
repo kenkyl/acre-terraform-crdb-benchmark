@@ -1,14 +1,6 @@
 #cloud-config
 
-# Install additional packages on first boot
-#
-# Default: none
-#
-# if packages are specified, this apt_update will be set to true
-#
-# packages may be supplied as a single package name or as a list
-# with the format [<package>, <version>] wherein the specifc
-# package version will be installed.
+## packages did not work, instead you can run all the cli commands in the runcmd.
 # # Commands to run
 runcmd:
   - "apt-get -y install make"
@@ -23,10 +15,7 @@ runcmd:
   - "git clone https://github.com/RedisLabs/memtier_benchmark"
   - "cd memtier_benchmark"
   - "autoreconf -iv && ./configure && make install"
-  - "${memtier_data_input_1}  -s ${memtier_redis_server_address} -p ${memtier_redis_port}"
-  - "${memtier_benchmark_1}  -s ${memtier_redis_server_address} -p ${memtier_redis_port}"
-  - "redis-cli -h ${memtier_redis_server_address} -p ${memtier_redis_port} flushdb" # does not work redis is not installed
-  - "${memtier_data_input_1}  -s ${memtier_redis_server_address} -p ${memtier_redis_port}"
-  - "${memtier_benchmark_1}  -s ${memtier_redis_server_address} -p ${memtier_redis_port}"
+  - "${memtier_data_input_1}  -s ${test_acre_url_1} -p ${acre_port_1}"
+  - "${memtier_benchmark_1}  -s ${test_acre_url_1} -p ${acre_port_1}"
   
   #- "rm -rf memtier_benchmark" # if we want to remove the folder

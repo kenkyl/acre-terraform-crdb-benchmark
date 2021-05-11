@@ -4,3 +4,5 @@
 terraform.tfvars
 terraform.tfstate*
 #notes.txt
+acre1_ARM_template.json
+tfplan.json

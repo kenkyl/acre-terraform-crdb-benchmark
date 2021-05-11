@@ -2,3 +2,9 @@ subscription_id = ""
 tenant_id = ""
 client_id = ""
 client_secret = ""
+
+# first data input script into redis db.
+memtier_data_input_1 = "memtier_benchmark -x 3 -n 180000 -c 1 -t 1 --ratio=1:0 --data-size=80 --key-maximum=180000 --pipeline=1000 --key-pattern=S:S --hide-histogram"
+
+# first memtier benchmark
+memtier_benchmark_1 = "memtier_benchmark -x 2 -t 8 -c 100 -n 100 --ratio=1:10000 --data-size=80 --key-maximum=180000 --hide-histogram"
