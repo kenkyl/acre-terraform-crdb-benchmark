@@ -28,10 +28,10 @@ resource "random_string" "acre_group_name" {
 }
 
 resource "random_string" "client_vm_name" {
-  length = 4
-  number = true
+  length  = 4
+  number  = true
   special = false
-  upper = false
+  upper   = false
 }
 
 resource "random_string" "key_vault_name" {

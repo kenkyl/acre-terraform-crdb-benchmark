@@ -1,6 +1,3 @@
-
-
-
 resource "azurerm_resource_group_template_deployment" "acre_1" {
   name                = format("acre-aa-benchmark%s", random_string.acre_name_1.result)
   resource_group_name = azurerm_resource_group.resource_group.name
@@ -17,18 +14,7 @@ resource "azurerm_resource_group_template_deployment" "acre_1" {
       acre_group_nickname  = random_string.acre_group_name.result,
       subscription_id      = var.subscription_id,
       resource_group_name  = azurerm_resource_group.resource_group.name
-  })
 
-  depends_on = [azurerm_resource_group.resource_group]
-}
-
-resource "azurerm_resource_group_template_deployment" "key_vault" {
-  name                = format("acre-aa-benchmark%s", random_string.key_vault_name.result)
-  # name                = random_string.key_vault_name.result
-  resource_group_name = azurerm_resource_group.resource_group.name
-  deployment_mode     = var.acre_deployment_mode
-  template_content = templatefile(var.key_vault_template,
-    {
       clusterName              = format("acre-aa-benchmark%s", random_string.acre_name_1.result),
       objectId                 = data.azuread_service_principal.acre-aa-benchmark.object_id,
       servicePrincipalObjectId = var.client_id,
@@ -36,8 +22,7 @@ resource "azurerm_resource_group_template_deployment" "key_vault" {
       secretName               = random_string.secret_name.result
   })
 
-  # depends_on = [azurerm_resource_group.resource_group, azurerm_resource_group_template_deployment.acre_1]
-  depends_on = [azurerm_resource_group_template_deployment.acre_1]
+  depends_on = [azurerm_resource_group.resource_group]
 }
 
 

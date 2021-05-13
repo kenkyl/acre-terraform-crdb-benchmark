@@ -26,12 +26,12 @@ variable "acre_eviction_policy" {
 
 variable "acre_template_path_1" {
   description = "Path to ARM template being sourced"
-  default     = "./ARM/ACRE/json1.template"
+  default     = "./ARM/ACRE/acre1.json"
 }
 
 variable "acre_template_path_2" {
   description = "Path to ARM template being sourced"
-  default     = "./ARM/ACRE/json2.template"
+  default     = "./ARM/ACRE/acre2.json"
 }
 
 variable "acre_sku" {
@@ -45,11 +45,6 @@ variable "client_id" {
 
 variable "client_secret" {
   description = "Client Secret for Service Principal"
-}
-
-variable "key_vault_template" {
-  description = "Key vault for storing access keys"
-  default = "./ARM/keyvault.json"
 }
 
 variable "subscription_id" {
@@ -74,22 +69,23 @@ variable "tags" {
 
 variable "client_vm_name_root" {
   description = "The name of the client VM used to run memtier_benchmark"
-  type = string
-  default = "client-test-vm"
+  type        = string
+  default     = "client-test-vm"
 }
 
 variable "client_region" {
   description = "The region where the client vm and associated resources are deployed"
-  type = string
-  default = "eastus2"
+  type        = string
+  default     = "eastus2"
 }
 
 ##################################################################
 
 variable "memtier_data_input_1" {
   description = "memtier data input (1st)"
+  default = "memtier_benchmark -x 3 -n 180000 -c 1 -t 1 --ratio=1:0 --data-size=80 --key-maximum=180000 --pipeline=1000 --key-pattern=S:S --hide-histogram"
 }
-
 variable "memtier_benchmark_1" {
   description = "memtier benchmark code to run (1st)"
+  default = "memtier_benchmark -x 2 -t 8 -c 100 -n 100 --ratio=1:10000 --data-size=80 --key-maximum=180000 --hide-histogram"
 }
