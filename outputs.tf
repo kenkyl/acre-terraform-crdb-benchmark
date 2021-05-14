@@ -53,17 +53,17 @@ output "run_memtier" {
 
 ####### BLOB
 
-locals {
-  blob_url = azurerm_storage_blob.myblob.url
-  blob_id       = azurerm_storage_blob.myblob.id
-}
+# locals {
+#   blob_url = azurerm_storage_blob.myblob.url
+#   blob_id       = azurerm_storage_blob.myblob.id
+# }
 
-output "blob_url" {
-  value       = local.blob_url
-  description = "blob url"
-}
+# output "blob_url" {
+#   value       = local.blob_url
+#   description = "blob url"
+# }
 
-output "blob_id" {
-  value       = local.blob_id
-  description = "blob id"
-}
+# output "blob_id" {
+#   value       = local.blob_id
+#   description = "blob id"
+# }
