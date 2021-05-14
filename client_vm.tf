@@ -124,6 +124,7 @@ data "template_file" "script" {
   vars = {
     memtier_data_input_1 = var.memtier_data_input_1
     memtier_benchmark_1  = var.memtier_benchmark_1
+    outfile_name_1 = var.outfile_name_1
     ## You cannot extract attributes from an ARM template, so the acre hostname must be built from other vars.
     test_acre_url_1 = format("acre-aa-benchmark%s.%s.redisenterprise.cache.azure.net", random_string.acre_name_1.result, random_shuffle.acre-aa-benchmark.result[0])
     acre_port_1     = "10000"

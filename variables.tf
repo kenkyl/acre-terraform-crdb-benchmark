@@ -89,3 +89,8 @@ variable "memtier_benchmark_1" {
   description = "memtier benchmark code to run (1st)"
   default = "memtier_benchmark -x 2 -t 8 -c 100 -n 100 --ratio=1:10000 --data-size=80 --key-maximum=180000 --hide-histogram"
 }
+
+variable "outfile_name_1" {
+  description = "memtier outfile (1st run)"
+  default = "ACRETESToutfile.json"
+}

@@ -49,3 +49,21 @@ output "run_memtier" {
   value       = "ssh -i ~/.ssh/YOURKEYNAME.pem ${local.user}@${local.host} ${local.program}"
   description = "ssh string to execute memtier_benchmark on target Azure vm instance"
 }
+
+
+####### BLOB
+
+locals {
+  blob_url = azurerm_storage_blob.myblob.url
+  blob_id       = azurerm_storage_blob.myblob.id
+}
+
+output "blob_url" {
+  value       = local.blob_url
+  description = "blob url"
+}
+
+output "blob_id" {
+  value       = local.blob_id
+  description = "blob id"
+}
