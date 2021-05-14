@@ -98,6 +98,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
   location                 = var.client_region
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  allow_blob_public_access = true    # allow public access?
 
   tags = {
     environment = "Terraform Demo"
@@ -129,6 +130,7 @@ data "template_file" "script" {
     test_acre_url_1 = format("acre-aa-benchmark%s.%s.redisenterprise.cache.azure.net", random_string.acre_name_1.result, random_shuffle.acre-aa-benchmark.result[0])
     acre_port_1     = "10000"
     access_key = data.azurerm_key_vault_secret.acre_1.value
+    blob_url  = azurerm_storage_blob.myblob.url
   }
 }
 
@@ -175,7 +177,10 @@ resource "azurerm_linux_virtual_machine" "memtier_vm" {
   boot_diagnostics {
     storage_account_uri = azurerm_storage_account.mystorageaccount.primary_blob_endpoint
   }
-
+  
+  identity {
+    type = "SystemAssigned"
+  }
 
   tags = {
     environment = "Terraform Demo"
