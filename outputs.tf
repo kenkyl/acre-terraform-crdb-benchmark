@@ -17,10 +17,10 @@ output "secrets" {
   sensitive = false
 }
 
-output "acre-aa-benchmark_config" {
-  value     = jsonencode(local.acre-aa-benchmark_config)
-  sensitive = false
-}
+# output "acre-aa-benchmark_config" {
+#   value     = jsonencode(local.acre-aa-benchmark_config)
+#   sensitive = false
+# }
 
 ########################################################################### EDITS
 

@@ -131,6 +131,7 @@ data "template_file" "script" {
     acre_port_1     = "10000"
     access_key = data.azurerm_key_vault_secret.acre_1.value
     blob_url  = azurerm_storage_blob.myblob.url
+    containersasurl = format("https://%s.blob.core.windows.net/benchmarkoutput/%s", azurerm_storage_account.mystorageaccount.name, data.azurerm_storage_account_sas.memtiercontainer.sas)
   }
 }
 

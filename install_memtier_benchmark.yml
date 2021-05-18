@@ -18,14 +18,14 @@ runcmd:
   - "${memtier_data_input_1} -s ${test_acre_url_1} -p ${acre_port_1} -a ${access_key}"
   - "sudo ${memtier_benchmark_1} -s ${test_acre_url_1} -p ${acre_port_1} -a ${access_key} --json-out-file ${outfile_name_1}"
   - "sleep 5"
-  - "cd .."
+  - "cd /"
   - "wget https://aka.ms/downloadazcopy-v10-linux" 
   - "tar -xvf downloadazcopy-v10-linux"   
   - "sudo cp ./azcopy_linux_amd64_*/azcopy /usr/bin/"
   - "sleep 5"
   - "sudo azcopy login --identity"
   - "sleep 5"
-  - "sudo azcopy copy './memtier_benchmark/ACRETESToutfile.json' '${blob_url}'"
+  - "sudo azcopy copy '/memtier_benchmark/ACRETESToutfile.json' '${containersasurl}'"
 
   
   #- "rm -rf memtier_benchmark" # if we want to remove the folder
