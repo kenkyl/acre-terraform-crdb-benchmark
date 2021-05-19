@@ -27,7 +27,6 @@ resource "azurerm_resource_group_template_deployment" "acre_1" {
 
 
 
-/*
 resource "azurerm_resource_group_template_deployment" "acre_2" {
   name                = format("acre-aa-benchmark3%s", random_string.acre_name_2.result)
   resource_group_name = azurerm_resource_group.resource_group.name
@@ -50,4 +49,3 @@ resource "azurerm_resource_group_template_deployment" "acre_2" {
 
   depends_on = [azurerm_resource_group_template_deployment.acre_1]
 }
-*/
