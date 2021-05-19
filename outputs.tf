@@ -35,20 +35,20 @@ output "host" {
   description = "Public IP for memtier instance"
 }
 
-output "user" {
-  value       = local.user
-  description = "user with access to host"
-}
+# output "user" {
+#   value       = local.user
+#   description = "user with access to host"
+# }
 
-output "program" {
-  value       = local.program
-  description = "Absolute path to program on host"
-}
+# output "program" {
+#   value       = local.program
+#   description = "Absolute path to program on host"
+# }
 
-output "run_memtier" {
-  value       = "ssh -i ~/.ssh/YOURKEYNAME.pem ${local.user}@${local.host} ${local.program}"
-  description = "ssh string to execute memtier_benchmark on target Azure vm instance"
-}
+# output "run_memtier" {
+#   value       = "ssh -i ~/.ssh/YOURKEYNAME.pem ${local.user}@${local.host} ${local.program}"
+#   description = "ssh string to execute memtier_benchmark on target Azure vm instance"
+# }
 
 
 ####### BLOB

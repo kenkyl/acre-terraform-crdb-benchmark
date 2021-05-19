@@ -94,3 +94,23 @@ variable "outfile_name_1" {
   description = "memtier outfile (1st run)"
   default = "ACRETESToutfile.json"
 }
+
+variable "txt_outfile_name_1" {
+  description = "memtier outfile txt(1st run)"
+  default = "ACRETESToutfile.txt"
+}
+
+variable "memtier_benchmark_2" {
+  description = "memtier benchmark code to run (2nd)"
+  default = "memtier_benchmark -x 2 -t 8 -c 100 -n 100 --ratio=1:10000 --data-size=80 --key-maximum=180000 --hide-histogram"
+}
+
+variable "outfile_name_2" {
+  description = "memtier outfile (2nd run)"
+  default = "ACRETESToutfile2.json"
+}
+
+variable "txt_outfile_name_2" {
+  description = "memtier outfile txt(2nd run)"
+  default = "ACRETESToutfile2.txt"
+}

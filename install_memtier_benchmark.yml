@@ -16,8 +16,8 @@ runcmd:
   - "cd memtier_benchmark"
   - "autoreconf -iv && ./configure && make install"
   - "${memtier_data_input_1} -s ${test_acre_url_1} -p ${acre_port_1} -a ${access_key}"
-  - "sudo ${memtier_benchmark_1} -s ${test_acre_url_1} -p ${acre_port_1} -a ${access_key} --json-out-file ${outfile_name_1}"
-  - "sleep 5"
+  - "sudo ${memtier_benchmark_1} -s ${test_acre_url_1} -p ${acre_port_1} -a ${access_key} --json-out-file ${outfile_name_1} --out-file ${txt_outfile_name_1}"
+  - "sleep 10"
   - "cd /"
   - "wget https://aka.ms/downloadazcopy-v10-linux" 
   - "tar -xvf downloadazcopy-v10-linux"   
@@ -25,7 +25,10 @@ runcmd:
   - "sleep 5"
   - "sudo azcopy login --identity"
   - "sleep 5"
-  - "sudo azcopy copy '/memtier_benchmark/ACRETESToutfile.json' '${containersasurl}'"
-
-  
-  #- "rm -rf memtier_benchmark" # if we want to remove the folder
+  - "sudo azcopy copy '/memtier_benchmark/${outfile_name_1}' '${containersasurl}'"
+  - "sudo azcopy copy '/memtier_benchmark/${txt_outfile_name_1}' '${containersasurl}'"
+  - "sleep 10"
+  - "sudo ${memtier_benchmark_2} -s ${test_acre_url_1} -p ${acre_port_1} -a ${access_key} --json-out-file ${outfile_name_2} --out-file ${txt_outfile_name_2}"
+  - "sleep 5"
+  - "sudo azcopy copy '/memtier_benchmark/${outfile_name_2}' '${containersasurl}'"
+  - "sudo azcopy copy '/memtier_benchmark/${txt_outfile_name_2}' '${containersasurl}'"
